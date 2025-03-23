@@ -16,7 +16,7 @@
 `cat /proc/cpuinfo | grep "model name" | uniq` - check CPU architecture
 `uname -m`
 `curl -L "URL"` - download file from URL
-`curl -L https://gist.github.com/lilydjwg/fdeaf79e921c2f413f44b6f613f6ad53/raw/94d8b2be62657e96488038b0e547e3009ed87d40/colors.py | python3` - 
+`curl -L https://gist.github.com/lilydjwg/fdeaf79e921c2f413f44b6f613f6ad53/raw/94d8b2be62657e96488038b0e547e3009ed87d40/colors.py | python3` -
 
 ## time fix for dualboot (win-linux)
 
@@ -83,15 +83,11 @@ check keys `gpg -K`
 `docker rm $(docker ps -a -q)` - remove all containers
 `docker rmi $(docker images -q)` - remove all images
 `docker-compose up -d` - start docker-compose
+`docker build -t [BOT NAME] .` создание отображаемого docker-образа
+`docker run --env-file .env --name bill_bot -d bill_bot` запуск бот с env-файлом (с переменным окружением)
+**Важно чтобы в файле .env был явно укзана токен BOT_TOKEN=**
 
-### upgrade docker image via portainer
-
-1. pull new (updated) image from registry
-2. stop the current container
-3. remove the old image
-4. re-deploy the container (in stack editor menu)
-
-**контейнеры можно с помощью контейнера WATCHTOWER**
+**контейнеры можно обновлять с помощью контейнера WATCHTOWER**
 
 `docker-compose logs -f` - follow logs
 `docker build command` - build docker image
@@ -220,15 +216,6 @@ Print server on arch linux `yay -Sy --noconfirm cups`
 Print server on macOS `brew install cups`
 [что такое CUPS](https://help.ubuntu.ru/wiki/%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE_%D0%BF%D0%BE_ubuntu_server/%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/cups)
 
-search packet from AUR `pamac search -a <packet-name>`
-remove software from AUR `sudo pacman -Rs <packet-name>`
-install packets via yay (helper) installing helper `sudo pacman -Sy base-devel git yay`
-install packets `yay -Sy --noconfirm <packet-name>`
-install nerd fonts on arch `yay -S nerd-fonts-meta`
-remove packet `yay -Rs <packet-name> or sudo pacman -R <packet-name>`
-clean cache `yay -Sc`
-list installed packets `yay -Qe` or `pacman -Qe` or `yay -Qm`
-
 ## Homebrew
 
 `brew bundle dump` create brewfile
@@ -287,3 +274,6 @@ Batch convert `mogrify -format heic *.jpg`
 `sudo zpool set autoexpand=on zfspool` автоматическое расширение пула
 добавить в _/etc/udev/rules.d/90-zfs.rules_ `KERNEL=="sd*", ACTION=="add", RUN+="/usr/bin/zpool import zfspool"` dev-правила для автоматического импорта
 `sudo udevadm control --reload-rules` обновление udev
+`zpool status datapool` покажет состояние пула
+`zfs list` список дисков с zfs
+`df -h /mnt/mydata` покажет занятое пространство
