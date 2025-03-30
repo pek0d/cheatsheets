@@ -1,4 +1,4 @@
-﻿# UNIX-hints
+# UNIX hints
 
 `uname` view system info (linux)  
 `uname -srm`
@@ -7,14 +7,13 @@
 `uname -r` - view about kernel release info
 `uname -m` - view machine hardware info
 `uname -a` - view all info
-`sudo lshw`- view hardware info
-`sudo lshw`- short view hardware info short
+`sudo lshw` - view hardware info
+`sudo lshw` - short view hardware info short
 `sudo lshw -html > lshw.htmlw` - save info in html file
 `lscpu view` - view info cpu
 `sudo lsblk` - view block devices (all drives)
 `sudo lsusb` - view usb info
 `cat /proc/cpuinfo | grep "model name" | uniq` - check CPU architecture
-`uname -m`
 `curl -L "URL"` - download file from URL
 `curl -L https://gist.github.com/lilydjwg/fdeaf79e921c2f413f44b6f613f6ad53/raw/94d8b2be62657e96488038b0e547e3009ed87d40/colors.py | python3` -
 
@@ -30,8 +29,6 @@ switching linux kernels
 
 ## SSH
 
-`ssh -p '2255' pekod@192.168.88.242` - connect to server with port 2255  
-Сгенерировать ssh ключи (можно без passphrase)  
 `ssh-keygen -t rsa -b 4096`  
 Добавить пароль сервера в ssh (чтобы не вводить при каждом подключении).Для этого нужно хотя бы раз войти на сервер.
 `ssh-copy-id user@server`  
@@ -39,7 +36,6 @@ switching linux kernels
 `chmod go-w /home/user`
 `chmod 700 /home/user/.ssh`
 `chmod 600 /home/user/.ssh/authorized_keys`
-`sudo systemctl restart sshd.service`
 
 ## mikrotik
 
@@ -56,10 +52,8 @@ rsync with delete files at target folder
 
 ## GPG & pass
 
-`gpg --import public.gpg secret.gpg`
-GPG trust key activate
-`gpg --edit-key "onathema@gmail.com"`
-trust key 5
+`gpg --import public.gpg secret.gpg`  GPG trust key activate
+`gpg --edit-key "onathema@gmail.com"`  trust key 5
 gpg encrypt file `gpg -e -a -r onathema@gmail.com file.csv`
 gpg decrypt file `gpg -d -o file.csv file.csv.asc`
 check keys `gpg -K`
@@ -85,7 +79,7 @@ check keys `gpg -K`
 `docker-compose up -d` - start docker-compose
 `docker build -t [BOT NAME] .` создание отображаемого docker-образа
 `docker run --env-file .env --name bill_bot -d bill_bot` запуск бот с env-файлом (с переменным окружением)
-**Важно чтобы в файле .env был явно укзана токен BOT_TOKEN=**
+**Важно чтобы в файле .env был явно указана токен BOT_TOKEN=**
 
 **контейнеры можно обновлять с помощью контейнера WATCHTOWER**
 
@@ -155,8 +149,8 @@ check dns `scutil --dns | grep 'nameserver\[[0-9]*\]'`
 moves us back two levels. `cd ../..`
 show all files including hidden `ls -a`
 show current directory (Print Working Directory) `pwd`
-показать содержимое файла `bat` or `cat файл`
-показывает место измнений в файле `bat -d`
+показать содержимое файла `bat` or `cat`
+показывает место изменений в файле `bat -d`
 print history of commands in terminal `history`  
 `history -d [linenumber]`
 clear history (purge) `history -p`  
@@ -200,20 +194,11 @@ To install useful key bindings and fuzzy completion: `(brew --prefix)/opt/fzf/in
 To install useful key bindings and fuzzy completion for tmux: `(brew --prefix)/opt/fzf/install --tmux`  
 To install useful key bindings and fuzzy completion for zsh: `(brew --prefix)/opt/fzf/install --zsh`
 
-## SAMBA
+## CUPS
 
-`mount smb` - create mounting point
-`mkdir sd`
-`mount_smbfs //pekod@nas.local/home/Drive ./sd`
-`umount ./sd`
-`sudo mount_smbfs //pekod@nas.local/home/Drive ./sd`
-`touch /etc/samba/smb.conf` - create config file
-`sudo nano /etc/samba/smb.conf` - edit config file
-`sudo smbpasswd -a pekod` - add user
-Print server on arch linux `yay -Sy --noconfirm cups`
 `/etc/cups/cupsd.conf` edit cupsd.conf  
 `cupsctl --remote-admin --remote-any --share-printers` - allow remote access to all connected printers
-Print server on macOS `brew install cups`
+Print server `brew install cups`
 [что такое CUPS](https://help.ubuntu.ru/wiki/%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE_%D0%BF%D0%BE_ubuntu_server/%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0/cups)
 
 ## Homebrew
