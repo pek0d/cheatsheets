@@ -33,11 +33,15 @@
 `python3 -m pip install <package name>`  
 или `pip install <package name>` или `pip install -r requirements.txt`
 
-## Запуск скрипта без добавления в PATH
+## PDM
 
-Внутри самого файла со скриптом прописать "Шебанк"
-**#!/usr/bin/env python3**
-
-`chmod +x <file>`  
-`sudo ln -s $(pwd)/<file> /usr/local/bin`
+Start new project  
+`pdm new my-project`
+`pdm init`  
+List the currently installed Python interpreters:  
+`pdm python list`
+Add package:  
+`pdm add`
+Run script:  
+`pdm run yandex-music-downloader --token "y0__xC9w6NqGN74BiCS4aWaFDCeovamCKRaNIYzXUtRhN6HjynGZMUN7plC" --quality 2 --url "https://music.yandex.ru/track/136970092\?utm_source\=web\&utm_medium\=copy_link»`
 
