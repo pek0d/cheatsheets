@@ -379,4 +379,3 @@ grep является одной из основных утилит в Linux и
 - **Automount:**
   - Add to `/etc/udev/rules.d/90-zfs.rules`: `KERNEL=="sd*", ACTION=="add", RUN+="/usr/bin/zpool import zfspool"`
   - `sudo udevadm control --reload-rules` — Reload udev rules
-
